@@ -214,27 +214,13 @@
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  /*
-   * قائمة المقالات — أضف كل مقال جديد هنا.
-   * slug   = اسم ملف .md بدون الامتداد
-   * title  = العنوان كما سيظهر
-   * date   = تاريخ النشر
-   * tag    = وسم اختياري
-   */
   const ARTICLES = [
     {
       slug:  'save_your_self',
-      title: 'أنقذ نفسك',
+      title: 'كيفاش تحمي نفسك من اختراء حسابك ويولي ',
       date:  '2025-04-19',
       tag:   'فكر',
     },
-    {
-      slug:  'pip',
-      title: 'how to ..',
-      date:  '2025-04-19',
-      tag:   'فكر',
-    },
-    // أضف مقالات هنا ↑
   ];
 
   function formatDate(str) {
@@ -251,7 +237,6 @@
       return;
     }
 
-    // ترتيب تنازلي حسب التاريخ
     const sorted = [...ARTICLES].sort((a, b) => new Date(b.date) - new Date(a.date));
 
     count.textContent = `${sorted.length} ${sorted.length === 1 ? 'مقالة' : 'مقالات'}`;

@@ -21,6 +21,7 @@
       --muted:     #666;
       --muted-2:   #444;
       --accent:    #b87fff;
+      --highlight-color: rgba(184, 127, 255, 0.3);
       --accent-dim: rgba(184,127,255,0.12);
       --font-ar:   'IBM Plex Sans Arabic', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -36,6 +37,7 @@
       --muted:     #888;
       --muted-2:   #bbb;
       --accent:    #7c3aed;
+      --highlight-color: rgba(124, 58, 237, 0.2);
       --accent-dim: rgba(124,58,237,0.08);
     }
 
@@ -58,7 +60,12 @@
       line-height: 1.85;
       min-height: 100vh;
     }
+    
 
+::selection {
+    background-color: var(--text); 
+    color: var(--bg);
+}
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -177,7 +184,8 @@
     #article-body h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
     #article-body h3 { font-size: 1.1rem; }
 
-    #article-body p { margin-bottom: 1.3rem;
+    #article-body p { 
+      margin-bottom: 1.3rem;
     text-align: justify;
     }
 
@@ -190,7 +198,9 @@
     #article-body a:hover { border-color: var(--accent); }
 
     #article-body strong { color: var(--text); font-weight: 600; }
-    #article-body em { color: #aaa; font-style: italic; }
+    #article-body em { color: #aaa; font-style: normal;
+    font-family: "JetBrains";
+    }
 
     #article-body ul,
     #article-body ol {
@@ -262,16 +272,13 @@
     }
     #article-body th { background: #111; color: var(--text); font-weight: 500; }
 
-    /* ── MARK (==highlight==) ── */
-    #article-body mark {
-      background: var(--accent-dim);
-      color: var(--accent);
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-weight: 500;
-      border-bottom: 1px solid var(--accent);
-      text-decoration: none;
-    }
+#article-body mark {
+  display: inline;
+    background: linear-gradient(0deg, var(--bg-card) 40%, transparent 40%);
+    padding: 0 2px;
+    color: var(--text);
+}
+
 
     /* ── THEME TOGGLE ── */
     #theme-toggle {
@@ -430,9 +437,7 @@
    * تُستخدم لعرض العنوان والتاريخ والتاغ في صفحة المقالة
    */
   const ARTICLES_META = {
-    save_your_self: { title: 'أنقذ نفسك', date: '2025-04-19', tag: 'فكر' },
-    pip: { title: 'pip', date: '2025-04-19', tag: 'فكر' },
-    // أضف مقالات هنا ↑
+    save_your_self: { title: 'مقالة مهمة على مدير كلمات المرور', date: '2025-04-19', tag: 'فكر' },
   };
 
   function formatDate(str) {
@@ -460,7 +465,6 @@
       const md = await res.text();
       const meta = ARTICLES_META[slug] || {};
 
-      // عنوان الصفحة
       document.title = (meta.title || slug) + ' — المدوّنة';
 
       // استخراج العنوان من أول سطر # إن لم يكن في meta
