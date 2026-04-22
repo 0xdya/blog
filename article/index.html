@@ -431,8 +431,13 @@
     }
   };
   marked.use({ extensions: [markExtension] });
+
+  /*
+   * بيانات المقالات — نفس القائمة في blog/index.html
+   * تُستخدم لعرض العنوان والتاريخ والتاغ في صفحة المقالة
+   */
   const ARTICLES_META = {
-    save_your_self: { title: 'كيفاش تحمي حساباتك من الاختراق ؟ ', date: '2025-04-19', tag: 'فكر' },
+    save_your_self: { title: 'مقالة مهمة على مدير كلمات المرور', date: '2025-04-19', tag: 'تقني' },
   };
 
   function formatDate(str) {
