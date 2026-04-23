@@ -10,6 +10,7 @@
   <!-- marked.js — تحويل Markdown إلى HTML -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -25,6 +26,7 @@
       --accent-dim: rgba(184,127,255,0.12);
       --font-ar:   'IBM Plex Sans Arabic', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
+      --font-hand:   'Aref Ruqaa', sans-serif;
     }
 
     /* ── LIGHT THEME ── */
@@ -107,7 +109,7 @@
     main {
       max-width: 780px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 10rem;
+      padding: 4rem 1.5rem 6rem;
     }
 
     /* ── ARTICLE META ── */
@@ -186,7 +188,9 @@
 
     #article-body p { 
       margin-bottom: 1.3rem;
-    text-align: justify;
+    }
+    p, li {
+      text-align: justify;
     }
 
     #article-body a {
@@ -216,7 +220,7 @@
       background: #111;
       border-radius: 0 6px 6px 0;
       color: #999;
-      font-style: italic;
+      text-align: justify;
     }
 
     #article-body code {
@@ -343,10 +347,27 @@
       backdrop-filter: blur(12px);
       border-top: 1px solid var(--border);
     }
+    .footer {
+      padding: 2rem 0 0;
+      text-align: center;
+      font-family: var(--font-hand);
+      font-size: 2rem;
+      word-spacing: 8px;
+      color: var(--muted);
+      /* background: rgba(10,10,10,0.9); */
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    }
 
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
-      main { padding: 2.5rem 1rem 7rem; }
+      main { padding: 2.5rem 1rem 5rem; }
     }
   </style>
 </head>
@@ -407,7 +428,6 @@
     }
   }
 
-  // تحميل الثيم المحفوظ أو تلقائي حسب النظام
   const saved = localStorage.getItem('blog-theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   applyTheme(saved || (prefersDark ? 'dark' : 'light'));
@@ -417,7 +437,6 @@
     applyTheme(current === 'dark' ? 'light' : 'dark');
   });
 
-  /* ── MARKED: ==highlight== → <mark> ── */
   const markExtension = {
     name: 'mark',
     level: 'inline',
@@ -433,7 +452,7 @@
   marked.use({ extensions: [markExtension] });
 
   const ARTICLES_META = {
-    save_your_self: { title: 'كيف تجعل اختراق حساباتك مستحيلاً؟', date: '2026-04-23', tag: 'امن سبراني' },
+    save_your_self: { title: 'كيف تجعل اختراق حساباتك مستحيلاً؟', date: '2026-04-23', tag: 'تقني' },
   };
 
   function formatDate(str) {
@@ -463,11 +482,9 @@
 
       document.title = (meta.title || slug) + ' — المدوّنة';
 
-      // استخراج العنوان من أول سطر # إن لم يكن في meta
       const firstHeading = md.match(/^#\s+(.+)/m)?.[1];
       const title = meta.title || firstHeading || slug;
 
-      // حذف أول heading من الـ MD لتجنب التكرار (إذا كان موجودًا)
       const cleanMd = meta.title ? md : md.replace(/^#\s+.+\n?/, '');
 
       contentEl.innerHTML = `
@@ -490,19 +507,18 @@
 
         <div id="article-body">${marked.parse(cleanMd)}</div>
 
-        <a href="../" class="back-bottom">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8H13M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          العودة إلى المدوّنة
+        <div class="footer">
+          صُنع وكُتب من طرف 
+          <a href="../">
+            ضياء الدين ملوك
         </a>
+        </div>
       `;
 
     } catch (err) {
       contentEl.innerHTML = `
         <p class="state error">
-          تعذّر تحميل المقالة "${slug}".<br>
-          تأكد من وجود الملف: <code>blog/article/${slug}.md</code>
+          تعذّر تحميل المقالة "${slug}".
         </p>
       `;
     }
