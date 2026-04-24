@@ -66,6 +66,11 @@
 ---
 
 ## ثانياً: استراتيجية "الصفر مخاطر" 
+<<<<<<< HEAD
+=======
+
+للإبحار بأمان تام، يجب عليك تبني نهج "الارتقاء الأمني" عبر المحاور التالية:
+>>>>>>> cb37c97 (Update index.html with improved viewport settings and enhanced title. Add new image file for article illustration. Revise save_your_self.md for clarity and consistency in security advice, including terminology adjustments and formatting enhancements.)
 
 ### 1. عزل الهوية الرقمية (Email Shadowing)
 
@@ -93,6 +98,11 @@
 
 ## ثالثاً: الفروع الأمنية المتقدمة – ما وراء كلمات المرور
 
+<<<<<<< HEAD
+=======
+ وهي ضرورية لاكتمال الحماية:
+
+>>>>>>> cb37c97 (Update index.html with improved viewport settings and enhanced title. Add new image file for article illustration. Revise save_your_self.md for clarity and consistency in security advice, including terminology adjustments and formatting enhancements.)
 ### 1. المصادقة متعددة العوامل (MFA) 
 
 لا تكتفِ بكلمة المرور أبداً. يجب تفعيل المصادقة متعددة العوامل عبر تطبيق مصادقة (مثل **Aegis Authenticator** مفتوح المصدر، أو **2FAS**، أو **Google Authenticator**) أو عبر مفتاح فيزيائي مثل **YubiKey**.
@@ -103,8 +113,12 @@
 
 استخدام أقوى مدير كلمات مرور على جهاز **مخترق** أو مليء بالبرمجيات الخبيثة هو جهد ضائع تماماً.
 
+<<<<<<< HEAD
 > **نصيحة مهمة خاصة لمن يستخدم حاسوبه فالعمل واشياء يخشى من اتلافها او سرقتها مثل فيروسات الفدية Ransomware:** <br>
 > تأكد من سلامة نظام التشغيل الخاص بك. حافظ على تحديث النظام والبرامج باستمرار، واستخدم جدار حماية، وتجنب تحميل البرامج من مصادر غير موثوقة. (إذا كنت من مستخدمي Linux، فاحرص على تحديث النواة بانتظام وتقليل البرامج الزائدة التي قد تحتوي على ثغرات).
+=======
+- **نصيحة مهمة خاصة لمن يستخدم حاسوبه فالعمل واشياء مهمة:** تأكد من سلامة نظام التشغيل الخاص بك. حافظ على تحديث النظام والبرامج باستمرار، واستخدم جدار حماية، وتجنب تحميل البرامج من مصادر غير موثوقة. (إذا كنت من مستخدمي Linux، فاحرص على تحديث النواة بانتظام وتقليل البرامج الزائدة التي قد تحتوي على ثغرات).
+>>>>>>> cb37c97 (Update index.html with improved viewport settings and enhanced title. Add new image file for article illustration. Revise save_your_self.md for clarity and consistency in security advice, including terminology adjustments and formatting enhancements.)
 
 ### 3. ثقافة "النظافة الرقمية" (Digital Hygiene)
 
