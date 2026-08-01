@@ -229,7 +229,7 @@ nav .logo:hover { color: var(--text); }
 }
 
 main {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 4rem 1.5rem 6rem;
 }
