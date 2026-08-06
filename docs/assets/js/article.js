@@ -160,7 +160,7 @@
           </div>
           <div id="article-body">${marked.parse(cleanMd)}</div>
           <div class="footer">
-            صُنع وكُتب من طرف 
+            صُنع وكُتب من طرف <br>
             <a href="https://0xdya.vercel.app/">ضياء الدين ملوك</a>
           </div>
         `;

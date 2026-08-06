@@ -284,11 +284,10 @@ main {
 #article-body h4 {
   color: var(--text);
   font-weight: 600;
-  margin: 2.5rem 0 .8rem;
+  margin: 2rem 0 .8rem;
   line-height: 1.4;
 }
 #article-body h1 { font-size: 1.6rem; 
-  border-bottom: 1px solid var(--border);
 }
 #article-body h2 { font-size: 1.3rem; 
    padding-bottom: .5rem; }
@@ -359,6 +358,7 @@ footer {
   z-index: 55;
 }
 .footer {
+  line-height: 1;
   padding: 2rem 0 0;
   text-align: center;
   font-family: var(--font-hand);
